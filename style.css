@@ -1,0 +1,198 @@
+@font-face {
+    font-family: "GT America";
+    src: url(font/GT.ttf);
+}
+@font-face {
+    font-family: "DINOT-CondMedium";
+    src: url(font/DINOT-CondMedium.otf);
+}
+@font-face {
+    font-family: "DINOT-Regular";
+    src: url(font/DINOT-Regular.otf);
+}
+.header {
+
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-family: "GT America";
+    font-size: 14px;
+    line-height: 16px;
+    width: calc(100vw - 200px);
+    background: black;
+    position: relative;
+    padding: 60px 100px;
+    overflow-y: scroll;
+    height: 550px;
+
+}
+
+
+.logo {
+    display: flex;
+    z-index: 5;
+    position: relative;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 53px;
+    display: flex;
+      
+}
+
+.emptybox {
+    height: 100px;
+}
+
+.emptybox2 {
+    height: 50px;
+}
+
+#tooltip {
+    z-index: 1;
+    font-family: 'DINOT-CondMedium';
+    font-size: 0.8em;
+    position: absolute;
+    pointer-events: none;
+    color: rgb(255, 255, 255);
+    background-color:rgb(22, 21, 41);
+    padding: 10px;
+    top: 0px;
+    left: 0px;
+    display: block;
+    
+}
+
+
+.boldtext {
+    font-family: 'DINOT-CondMedium';
+    font-size: 2em;
+    position: relative;
+    z-index: 5;
+    line-height: 1.2;
+    width: 400px;
+    color: rgba(241, 241, 241, 0.8)}
+
+    .size22{font-size: 17px;
+        color: #d9e3dc;
+        text-shadow: none;
+        cursor: pointer;
+        text-decoration:#d9e3dc;}
+    #footer{
+        padding-bottom: 10px;
+        padding-top: 50px;
+        padding-left: 50px;
+        padding-right: 30px;
+        font-family: 'DINOT-Regular';
+        height: 200px;
+        width: 100%vmax;
+        background-color: rgb(28, 28, 28);
+        justify-content: space-between;
+        display: flex;
+        -webkit-box-pack: justify;
+        border: 0px;
+        
+    }
+    #footer .col{
+        max-width: 30%;
+    }
+    #footer ul{
+        padding: 0px;
+        /*min-height: 200px;*/
+    }
+    #footer ul>li{
+        list-style: none;
+        padding-bottom: 12px;
+        line-height: 14px;
+    }
+  
+    #footer .copyright{
+        font-size: 14px;
+        color: #d9e3dc;
+        text-shadow: none;
+        cursor: pointer;
+        text-decoration: #d9e3dc;
+        
+    }
+    #footer .title{
+        font-size: 25px;
+        color: #d9e3dc;
+        margin-bottom: 12px;
+        font-family: 'DINOT-CondMedium';
+        text-transform: uppercase;
+    }
+    
+    .sns{
+        padding-bottom: 50px;	
+    }
+    .sns>a{
+        font-size: 25px;
+        margin-right: 24px;
+    }
+    
+    .sns .fa-instagram{
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: relative;
+        background: url('image/instagram-01.png') no-repeat left top;
+        background-size: contain;
+        top: 2px;
+    }
+    .sns .fa-instagram:hover{
+        background: url('image/ha-instagram-01.png') no-repeat left top;
+        background-size: contain;
+    }
+    
+    .sns .fa-vimeo{
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: relative;
+        background: url('image/vimeo-v-01.png') no-repeat left top;
+        background-size: contain;
+        top: 2px;
+    }
+    .sns .fa-vimeo:hover{
+        background: url('image/ha-vimeo-v-01.png') no-repeat left top;
+        background-size: contain;
+    }
+
+    ::selection {
+        background: #6AC65B; /* WebKit/Blink Browsers */
+      }
+    
+    .sns .fa-facebook{
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: relative;
+        background: url('image/facebook-f-01.png') no-repeat left top;
+        background-size: contain;
+        top: 2px;
+    }
+    .sns .fa-facebook:hover{
+        background: url('image/ha-facebook-f-01.png') no-repeat left top;
+        background-size: contain;
+    }
+    .footer .right{ 
+        -webkit-box-align: center;
+        align-items: center;
+        width: 250px;
+        right:0px;
+        top:0px;
+        z-index:100;
+        position: relative;
+        padding-top: 20px;
+        
+
+    }
+    .footer .left{
+        margin: 0;
+        padding: 0;
+        border: 0;
+  
+    }
