@@ -12,14 +12,20 @@ const deckgl = new DeckGL({
         zoom: 9.5,
         bearing: 24,
         pitch: 50,
-        controller: { doubleClickZoom: false, touchRotate: true },
+        dragRotate: true,
+        scrollZoom: false,
+        interactive: false,
+        touchZoomRotate: false,
+        dragPan: false,
     },
 
-    //layers: []
     layers: [
         new ArcLayer({
-            id: 'arc-layer',
+            id: 'arclayer',
             data: DATA_URI,
+            // brushingRadius: 10000,
+            // brushingEnabled: true,
+            // extensions: [new BrushingExtension()],
             getSourcePosition: d => d.gcoordinate,
             getTargetPosition: d => d.tcoordinate,
             getSourceColor: d => [106, 198, 91],
