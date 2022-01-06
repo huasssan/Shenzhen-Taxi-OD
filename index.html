@@ -10,7 +10,7 @@
     <link rel="icon" href="https://www.arch.hku.hk/assets/images/favicon.ico" type="image/x-icon">
     <!-- tells mobile devices how to scale the page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/deck.gl@^6.0.0/deckgl.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@^7.3.0-alpha.7/dist.min.js"></script>
     <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
@@ -78,16 +78,8 @@
     </div>
 
     <!-- load additional javascript -->
-    <script src='map.js'></script>
-    <script>
-        import { Deck } from '@deck.gl/core';
-        import { ScatterplotLayer } from '@deck.gl/layers';
+    <script src='map.js' type="text/javascript"></script>
 
-        import { BrushingExtension } from '@deck.gl/extensions';
-        import mapboxgl from 'mapbox-gl';
-        import { ArcLayer } from '@deck.gl/layers';
-
-    </script>
 </body>
 
 </html>
