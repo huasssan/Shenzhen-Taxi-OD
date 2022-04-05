@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+<!-- let the browser know this is an HTML file -->
 <html lang="en">
 
 <head>
+    <!-- everything else is enclosed in html tags -->
+    <!-- define the character set -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="og:title" content="Shenzhen: Taxi OD">
@@ -10,18 +13,19 @@
     <link rel="icon" href="https://www.arch.hku.hk/assets/images/favicon.ico" type="image/x-icon">
     <!-- tells mobile devices how to scale the page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- javascript links -->
     <script src="https://unpkg.com/deck.gl@^7.3.0-alpha.7/dist.min.js"></script>
-    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/chroma-js/2.1.2/chroma.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <!-- stylesheet links -->
     <link href='style.css' rel='stylesheet' />
-    <!-- font-awesome icon -->
-    <link rel="stylesheet" href="font-awesome.min.css">
+    <!-- the title of the page which will show up in the browser bar -->
     <title>Shenzhen Taxi OD</title>
 </head>
 
 <body>
+    <!-- visible structure of page begins here -->
     <div class="header">
 
         <div class="logo">
@@ -38,47 +42,89 @@
 
         <div class="emptybox2"></div>
         <div class="boldtext">How can we use cellphone data to measure urban segregation?</div>
+        <div class="gif">
+            <img class="flag" src="image/taxiname.gif" />
+        </div>
 
     </div>
-    <div style="position:relative; width: 100vw; height: 480px">
+    <div id="app" style="position:relative; width: 100vw; height: 480px">
+        <!-- <div class="mapboxgl-ctrl-bottom-left" style="transform: translateY(-40px);">
+            <div class="mapboxgl-ctrl mapboxgl-ctrl-group "><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-in"
+                    type="button" title="Zoom In"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-out"
+                    type="button" title="Zoom Out"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-compass"
+                    type="button" title="Reset North"><span class="mapboxgl-ctrl-compass-arrow"
+                        style="transform: rotate(0deg);"></span></button></div>
+        </div> -->
         <div id="map" style="width: 100vw; height: 480px"></div>
         <div id="tooltip"></div>
-    </div>
 
-    <div id="footer">
-        <div id='left' style="width: 60%; 
+        <div class="bar">
+            <div class="bTCrUG">
+                <div class="left"><span class="title">Taxi Movement</span>
+                    <div class="sc-bwzfXH bPLosp"></div>
+                    <h3>Taxi Status in Shenzhen </h3>
+                </div>
+
+                <div class="buttongroup">
+                    <button class="carrying" type="button">
+                        Carrying Status</button>
+                    <button class="vacant" type="button">Vacant
+                        Status</button>
+                </div>
+                <div class="emptybox3"></div>
+                <div class="para">
+                    <div class="label">Vacant rate</div>
+                    <div class="label">Carrying rate</div>
+                </div>
+                <div class="emptybox3"></div>
+                <div class="pstext">*Taxi vacant status and carrying status in Shenzhen</div>
+
+            </div>
+            <!-- <div id="container">
+
+            <h4>Vacant or Carrying</h4>
+
+            <select id="quartier" onchange="this.value">
+                <option value="Carrying">Carrying</option>
+                <option value="Vacant">Vacant</option>
+            </select>
+        </div> -->
+        </div>
+
+        <div id="footer">
+            <div id='left' style="width: 60%; 
         position: relative;
         -webkit-box-pack: justify;
         ">
-            <div class="col-xs-4 gapBtm40">
-                <div class="title">Contact</div>
-                <ul>
-                    <li><a class="size22" href="https://www.arch.hku.hk/contact/" tabindex="0">Contact</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-            <div class="sns col-md-12">
-                <a href="https://www.instagram.com/hkuarchitecture/" title="IG of DoA" tabindex="0"><strong
-                        class="fa fa-instagram"></strong></a>
-                <a href="https://vimeo.com/facarchhku" title="Vimeo" tabindex="0"><strong
-                        class="fa fa-vimeo"></strong></a>
-                <a href="https://www.facebook.com/pages/Faculty-of-Architecture-HKU/183793875064081" title="FaceBook"
-                    tabindex="0"><strong class="fa fa-facebook"></strong></a>
-            </div>
-            <div class="copyright">Faculty of Architecture, The University of Hong Kong ©2021 | <a
-                    href="https://www.hku.hk/about/policies_reports/privacy_policy.html"
-                    style="text-decoration: none; color: #d9e3dc;" tabindex="0">Privacy Policy</a>
-            </div>
+                <div class="col-xs-4 gapBtm40">
+                    <div class="title">Contact</div>
+                    <ul>
+                        <li><a class="size22" href="https://www.arch.hku.hk/contact/" tabindex="0">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+                <div class="sns col-md-12">
+                    <a href="https://www.instagram.com/hkuarchitecture/" title="IG of DoA" tabindex="0"><strong
+                            class="fa fa-instagram"></strong></a>
+                    <a href="https://vimeo.com/facarchhku" title="Vimeo" tabindex="0"><strong
+                            class="fa fa-vimeo"></strong></a>
+                    <a href="https://www.facebook.com/pages/Faculty-of-Architecture-HKU/183793875064081"
+                        title="FaceBook" tabindex="0"><strong class="fa fa-facebook"></strong></a>
+                </div>
+                <div class="copyright">Faculty of Architecture, The University of Hong Kong ©2021 | <a
+                        href="https://www.hku.hk/about/policies_reports/privacy_policy.html"
+                        style="text-decoration: none; color: #d9e3dc;" tabindex="0">Privacy Policy</a>
+                </div>
 
+            </div>
+            <div class="right"><a href="https://www.arch.hku.hk/" target="_blank" rel="noopener noreferrer"><img
+                        src="image/favicon.png" alt="Faculty of Architecture, The University of Hong Kong"
+                        style="height: 125px;"></a>
+            </div>
         </div>
-        <div class="right"><a href="https://www.arch.hku.hk/" target="_blank" rel="noopener noreferrer"><img
-                    src="image/favicon.png" alt="Faculty of Architecture, The University of Hong Kong"
-                    style="height: 125px;"></a>
-        </div>
-    </div>
 
-    <!-- load additional javascript -->
-    <script src='map.js' type="text/javascript"></script>
+        <!-- load additional javascript -->
+        <script src='map.js' type="text/javascript"></script>
 
 </body>
 

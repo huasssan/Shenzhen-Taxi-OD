@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Les mobilités intra départementales dans le 35</title>
+
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link data-n-head="true" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-144474235-3');
+</script>
+
+<body>
+
+    <h1> LES MOBILITÉS DOMICILE - TRAVAIL. </h1>
+    <h2> visualisation des mobilités intra Ille et Vilaine </h2>
+
+    <div id="map">
+
+        <div class="mapbox-attribution-container">
+            <a href="https://www.mapbox.com/about/maps/">
+                <h7>© Mapbox | </h7>
+            </a>
+            <a href="http://www.openstreetmap.org/copyright">
+                <h7>© OpenStreetMap | </h7>
+            </a>
+            <a href="https://www.mapbox.com/map-feedback/" target="_blank">
+                <h7><strong>Improve this map</strong></h7>
+            </a>
+            <a href="https://deck.gl/#/">
+                <h7>© DeckGL | </h7>
+            </a>
+            <a href="https://fr.linkedin.com/in/quentin-nahelou-39583712a">
+                <h7>Nahélou Quentin | </h7>
+            </a>
+            <a href="https://www.insee.fr/en/accueil">
+                <h7>INSEE. </h7>
+            </a>
+        </div>
+
+    </div>
+    <div id="countainer">
+
+        <h4>Cliquez directement sur la carte ou recherchez dans le menu déroulant pour changer de commune de départ.
+        </h4>
+
+        <div id="test">
+            <h4>Commune : </h4>
+            <span style="float:left;color: #FFA459">Arrivée</span>
+            <span style="float:right;color: #FFF248">Départ.</span>
+
+        </div>
+        <div id="dep_arriv"></div>
+    </div>
+
+    <div id="container">
+
+        <h4>Sélectionnez la commune à analyser :</h4>
+
+        <select id="quartier" onchange="this.value">
+            <option value="Acigné">Acigné</option>
+            <option value="Amanlis">Amanlis</option>
+            <option value="Andouillé-Neuville">Andouillé-Neuville</option>
+            <option value="Antrain">Antrain</option>
+            <option value="Argentré-du-Plessis">Argentré-du-Plessis</option>
+            <option value="Aubigné">Aubigné</option>
+            <option value="Availles-sur-Seiche">Availles-sur-Seiche</option>
+            <option value="Baguer-Morvan">Baguer-Morvan</option>
+            <option value="Baguer-Pican">Baguer-Pican</option>
+            <option value="Baillé">Baillé</option>
+            <option value="Bain-de-Bretagne">Bain-de-Bretagne</option>
+            <option value="Bains-sur-Oust">Bains-sur-Oust</option>
+            <option value="Bais">Bais</option>
+            <option value="Balazé">Balazé</option>
+            <option value="Baulon">Baulon</option>
+            <option value="Bazouges-la-Pérouse">Bazouges-la-Pérouse</option>
+            <option value="Beaucé">Beaucé</option>
+            <option value="Bécherel">Bécherel</option>
+            <option value="Bédée">Bédée</option>
+            <option value="Betton">Betton</option>
+            <option value="Billé">Billé</option>
+            <option value="Bléruais">Bléruais</option>
+            <option value="Boisgervilly">Boisgervilly</option>
+            <option value="Boistrudan">Boistrudan</option>
+            <option value="Bonnemain">Bonnemain</option>
+            <option value="Bourg-des-Comptes">Bourg-des-Comptes</option>
+            <option value="Bourgbarré">Bourgbarré</option>
+            <option value="Bovel">Bovel</option>
+            <option value="Bréal-sous-Montfort">Bréal-sous-Montfort</option>
+            <option value="Bréal-sous-Vitré">Bréal-sous-Vitré</option>
+            <option value="Brécé">Brécé</option>
+            <option value="Breteil">Breteil</option>
+            <option value="Brie">Brie</option>
+            <option value="Brielles">Brielles</option>
+            <option value="Broualan">Broualan</option>
+            <option value="Bruc-sur-Aff">Bruc-sur-Aff</option>
+            <option value="Bruz">Bruz</option>
+            <option value="Cancale">Cancale</option>
+            <option value="Cardroc">Cardroc</option>
+            <option value="Cesson-Sévigné">Cesson-Sévigné</option>
+            <option value="Champeaux">Champeaux</option>
+            <option value="Chancé">Chancé</option>
+            <option value="Chanteloup">Chanteloup</option>
+            <option value="Chantepie">Chantepie</option>
+            <option value="Chartres-de-Bretagne">Chartres-de-Bretagne</option>
+            <option value="Chasné-sur-Illet">Chasné-sur-Illet</option>
+            <option value="Châteaubourg">Châteaubourg</option>
+            <option value="Châteaugiron">Châteaugiron</option>
+            <option value="Châteauneuf-d'Ille-et-Vilaine">Châteauneuf-d'Ille-et-Vilaine</option>
+            <option value="Châtillon-en-Vendelais">Châtillon-en-Vendelais</option>
+            <option value="Chauvigné">Chauvigné</option>
+            <option value="Chavagne">Chavagne</option>
+            <option value="Chelun">Chelun</option>
+            <option value="Cherrueix">Cherrueix</option>
+            <option value="Chevaigné">Chevaigné</option>
+            <option value="Cintré">Cintré</option>
+            <option value="Clayes">Clayes</option>
+            <option value="Coësmes">Coësmes</option>
+            <option value="Comblessac">Comblessac</option>
+            <option value="Combourg">Combourg</option>
+            <option value="Combourtillé">Combourtillé</option>
+            <option value="Cornillé">Cornillé</option>
+            <option value="Corps-Nuds">Corps-Nuds</option>
+            <option value="Crevin">Crevin</option>
+            <option value="Cuguen">Cuguen</option>
+            <option value="Dinard">Dinard</option>
+            <option value="Dingé">Dingé</option>
+            <option value="Dol-de-Bretagne">Dol-de-Bretagne</option>
+            <option value="Domagné">Domagné</option>
+            <option value="Domalain">Domalain</option>
+            <option value="Domloup">Domloup</option>
+            <option value="Dompierre-du-Chemin">Dompierre-du-Chemin</option>
+            <option value="Dourdain">Dourdain</option>
+            <option value="Drouges">Drouges</option>
+            <option value="Eancé">Eancé</option>
+            <option value="Epiniac">Epiniac</option>
+            <option value="Erbrée">Erbrée</option>
+            <option value="Ercé-en-Lamée">Ercé-en-Lamée</option>
+            <option value="Ercé-près-Liffré">Ercé-près-Liffré</option>
+            <option value="Essé">Essé</option>
+            <option value="Étrelles">Étrelles</option>
+            <option value="Feins">Feins</option>
+            <option value="Fleurigné">Fleurigné</option>
+            <option value="Forges-la-Forêt">Forges-la-Forêt</option>
+            <option value="Fougères">Fougères</option>
+            <option value="Gaël">Gaël</option>
+            <option value="Gahard">Gahard</option>
+            <option value="Gennes-sur-Seiche">Gennes-sur-Seiche</option>
+            <option value="Gévezé">Gévezé</option>
+            <option value="Gosné">Gosné</option>
+            <option value="Goven">Goven</option>
+            <option value="Grand-Fougeray">Grand-Fougeray</option>
+            <option value="Guichen">Guichen</option>
+            <option value="Guignen">Guignen</option>
+            <option value="Guipel">Guipel</option>
+            <option value="Guipry-Messac">Guipry-Messac</option>
+            <option value="Hédé-Bazouges">Hédé-Bazouges</option>
+            <option value="Hirel">Hirel</option>
+            <option value="Iffendic">Iffendic</option>
+            <option value="Irodouër">Irodouër</option>
+            <option value="Janzé">Janzé</option>
+            <option value="Javené">Javené</option>
+            <option value="L'Hermitage">L'Hermitage</option>
+            <option value="La Baussaine">La Baussaine</option>
+            <option value="La Bazouge-du-Désert">La Bazouge-du-Désert</option>
+            <option value="La Bosse-de-Bretagne">La Bosse-de-Bretagne</option>
+            <option value="La Bouëxière">La Bouëxière</option>
+            <option value="La Boussac">La Boussac</option>
+            <option value="La Chapelle du Lou du Lac">La Chapelle du Lou du Lac</option>
+            <option value="La Chapelle-aux-Filtzméens">La Chapelle-aux-Filtzméens</option>
+            <option value="La Chapelle-Bouëxic">La Chapelle-Bouëxic</option>
+            <option value="La Chapelle-Chaussée">La Chapelle-Chaussée</option>
+            <option value="La Chapelle-de-Brain">La Chapelle-de-Brain</option>
+            <option value="La Chapelle-des-Fougeretz">La Chapelle-des-Fougeretz</option>
+            <option value="La Chapelle-Erbrée">La Chapelle-Erbrée</option>
+            <option value="La Chapelle-Janson">La Chapelle-Janson</option>
+            <option value="La Chapelle-Saint-Aubert">La Chapelle-Saint-Aubert</option>
+            <option value="La Chapelle-Thouarault">La Chapelle-Thouarault</option>
+            <option value="La Couyère">La Couyère</option>
+            <option value="La Dominelais">La Dominelais</option>
+            <option value="La Fontenelle">La Fontenelle</option>
+            <option value="La Fresnais">La Fresnais</option>
+            <option value="La Gouesnière">La Gouesnière</option>
+            <option value="La Guerche-de-Bretagne">La Guerche-de-Bretagne</option>
+            <option value="La Mézière">La Mézière</option>
+            <option value="La Noë-Blanche">La Noë-Blanche</option>
+            <option value="La Nouaye">La Nouaye</option>
+            <option value="La Richardais">La Richardais</option>
+            <option value="La Selle-en-Luitré">La Selle-en-Luitré</option>
+            <option value="La Selle-Guerchaise">La Selle-Guerchaise</option>
+            <option value="La Ville-ès-Nonais">La Ville-ès-Nonais</option>
+            <option value="Laignelet">Laignelet</option>
+            <option value="Laillé">Laillé</option>
+            <option value="Lalleu">Lalleu</option>
+            <option value="Landavran">Landavran</option>
+            <option value="Landéan">Landéan</option>
+            <option value="Landujan">Landujan</option>
+            <option value="Langan">Langan</option>
+            <option value="Langon">Langon</option>
+            <option value="Langouet">Langouet</option>
+            <option value="Lanhélin">Lanhélin</option>
+            <option value="Lassy">Lassy</option>
+            <option value="Le Châtellier">Le Châtellier</option>
+            <option value="Le Crouais">Le Crouais</option>
+            <option value="Le Ferré">Le Ferré</option>
+            <option value="Le Loroux">Le Loroux</option>
+            <option value="Le Minihic-sur-Rance">Le Minihic-sur-Rance</option>
+            <option value="Le Pertre">Le Pertre</option>
+            <option value="Le Petit-Fougeray">Le Petit-Fougeray</option>
+            <option value="Le Rheu">Le Rheu</option>
+            <option value="Le Sel-de-Bretagne">Le Sel-de-Bretagne</option>
+            <option value="Le Theil-de-Bretagne">Le Theil-de-Bretagne</option>
+            <option value="Le Tronchet">Le Tronchet</option>
+            <option value="Le Verger">Le Verger</option>
+            <option value="Le Vivier-sur-Mer">Le Vivier-sur-Mer</option>
+            <option value="Lécousse">Lécousse</option>
+            <option value="Les Brulais">Les Brulais</option>
+            <option value="Les Iffs">Les Iffs</option>
+            <option value="Les Portes du Coglais">Les Portes du Coglais</option>
+            <option value="Lieuron">Lieuron</option>
+            <option value="Liffré">Liffré</option>
+            <option value="Lillemer">Lillemer</option>
+            <option value="Livré-sur-Changeon">Livré-sur-Changeon</option>
+            <option value="Lohéac">Lohéac</option>
+            <option value="Longaulnay">Longaulnay</option>
+            <option value="Lourmais">Lourmais</option>
+            <option value="Louvigné-de-Bais">Louvigné-de-Bais</option>
+            <option value="Louvigné-du-Désert">Louvigné-du-Désert</option>
+            <option value="Luitré">Luitré</option>
+            <option value="Maen-Roch">Maen-Roch</option>
+            <option value="Marcillé-Raoul">Marcillé-Raoul</option>
+            <option value="Marcillé-Robert">Marcillé-Robert</option>
+            <option value="Marpiré">Marpiré</option>
+            <option value="Martigné-Ferchaud">Martigné-Ferchaud</option>
+            <option value="Maxent">Maxent</option>
+            <option value="Mecé">Mecé</option>
+            <option value="Médréac">Médréac</option>
+            <option value="Meillac">Meillac</option>
+            <option value="Melesse">Melesse</option>
+            <option value="Mellé">Mellé</option>
+            <option value="Mernel">Mernel</option>
+            <option value="Mézières-sur-Couesnon">Mézières-sur-Couesnon</option>
+            <option value="Miniac-Morvan">Miniac-Morvan</option>
+            <option value="Miniac-sous-Bécherel">Miniac-sous-Bécherel</option>
+            <option value="Mondevert">Mondevert</option>
+            <option value="Mont-Dol">Mont-Dol</option>
+            <option value="Montauban-de-Bretagne">Montauban-de-Bretagne</option>
+            <option value="Montautour">Montautour</option>
+            <option value="Monterfil">Monterfil</option>
+            <option value="Montfort-sur-Meu">Montfort-sur-Meu</option>
+            <option value="Montgermont">Montgermont</option>
+            <option value="Monthault">Monthault</option>
+            <option value="Montreuil-des-Landes">Montreuil-des-Landes</option>
+            <option value="Montreuil-le-Gast">Montreuil-le-Gast</option>
+            <option value="Montreuil-sous-Pérouse">Montreuil-sous-Pérouse</option>
+            <option value="Montreuil-sur-Ille">Montreuil-sur-Ille</option>
+            <option value="Mordelles">Mordelles</option>
+            <option value="Mouazé">Mouazé</option>
+            <option value="Moulins">Moulins</option>
+            <option value="Moussé">Moussé</option>
+            <option value="Moutiers">Moutiers</option>
+            <option value="Muel">Muel</option>
+            <option value="Rennes">Rennes</option>
+
+        </select>
+    </div>
+    <script src='js/mapbox.js'></script>
+    <script src='https://unpkg.com/deck.gl@~5.2.0/deckgl.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
