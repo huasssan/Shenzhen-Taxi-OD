@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- let the browser know this is an HTML file -->
+<html lang="en">
+
+<head>
+    <!-- everything else is enclosed in html tags -->
+    <!-- define the character set -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="og:title" content="Shenzhen: Taxi OD">
+    <meta name="og:image" content="">
+    <link rel="shortcut icon" href="https://www.arch.hku.hk/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://www.arch.hku.hk/assets/images/favicon.ico" type="image/x-icon">
+    <!-- tells mobile devices how to scale the page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet links -->
+    <link href='style2.css' rel='stylesheet' />
+    <!-- the title of the page which will show up in the browser bar -->
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
+    <!-- the title of the page which will show up in the browser bar -->
+    <title>Shenzhen Taxi </title>
+
+</head>
+
+<body class="preloader">
+    <aside class="left-side">
+        <!-- <div class="logo">
+            <img src="/image/logo.png" alt="Image">
+        </div> -->
+        <ul>
+            <li><a href="#">FACEBOOK</a></li>
+            <li><a href="#">INSTAGRAM</a></li>
+            <li><a href="#">VIMEO</a></li>
+        </ul>
+        <a href="#top" class="gotop"><img src="image/icon-gotop.svg" alt="Image" sizes="72x72"></a>
+    </aside>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="inner">
+                <div class="logo"> <a href="index.html"><img src="image/spine-top.png" alt="Image"></a> </div>
+                <!-- end logo -->
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Project</a></li>
+                        <li><a href="map.html">Trajectory</a></li>
+                        <li><a href="process.html">About</a></li>
+                        <li><a href="location.html" class="loc"><img src="image/location.png" alt=" Image"
+                                    sizes="30x30"></a></li>
+
+                    </ul>
+                </div>
+                <!-- end main-menu -->
+
+
+                <div class="headlines">
+                    <div class="container">
+                        <h1
+                            style="font-size: 7.3vw;text-align: center; background-color: #6AC65B;width: 375px;height: 100px;margin-top: 30px;">
+                            Taix OD
+                        </h1>
+                        <h1 style="font-size: 5vw; height: 130px;">Data Extraction and
+                            Visualization
+
+                        </h1>
+
+                        <h5
+                            style="font-size: 1.6vw; font-family: 'Bahnschrift'; font-weight: 400; margin-bottom: 30px;">
+                            Mobility and geographical data have become more accessible due to the widespread adoption of
+                            geo-technologies. This project focus on taxi GPS data to understand the taxi movement
+                            pattern in Shenzhen.
+
+                        </h5>
+                        <div class="emptybox"></div>
+                        <div class="case">
+                            <div
+                                style="position: absolute; margin-top: 620px;margin-left: 45px; color: white; font-weight: bold">
+                                <a href="index.html" style=" color:white ">READ MORE</a>
+                            </div>
+                            <figure><img src=" image/case.jpg" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="intro">
+                            <h4>Introduction</h4>
+                            <p>
+                                This visualization project is divided into three sections: 1) data processing, 2) data
+                                visualization, and 3)web establish.
+                            </p>
+                            <h4>
+                                Data processing
+                            </h4>
+                            <p>
+                                Extract taxi GPS data and filter data which outside Shenzhen bounday. Then extract
+                                single trajectory from the dataset as it has openstatus and time column, and divide it
+                                into vacant status and carrying status. Finally we can extraxt the origin and
+                                destination location, and export it as json file.
+                            </p>
+                            <div>
+                                <figure style="width: 550px; margin-left: 50px;"><img src=" image/process.jpg"
+                                        alt="Image">
+                            </div>
+                            <h4>
+                                Data Visualization
+                            </h4>
+                            <p>Deck.gl and Mapbox GL JS are frequently used together to create compelling geospatial
+                                visualizations.Combining the two JavaScript libraries together can produce seamlessly
+                                matched results. In this project, Mapbox GL JS provides basemap for deck.gl's layers.
+                                Arclayer, Scatterlayers and Hexagonlayer are used to visualize OD flow and taxi demands.
+                                Kepler.gl is used for visualize the taxi trips within one day. </p>
+                            <div>
+                                <figure style="width: 800px; margin-left: 50px;"><img src=" image/carrying.jpg"
+                                        alt="Image">
+                            </div>
+                            <h4>
+                                Web Establish
+                            </h4>
+                            <p>
+                                First,I use Adobe Illustator and Photoshop to design webpage. Then export each picture
+                                and write code in a html file to frame the webpage stacture. After setting the skeleton,
+                                CSS file is used to define the display properties for each HTML element.
+                            </p>
+                            <div>
+                                <figure style="width: 800px; margin-left: 50px;"><img src=" image/webdesign.jpg"
+                                        alt="Image">
+                            </div>
+                        </div>
+
+
+                        <!-- end container -->
+                    </div>
+                </div>
+        </nav>
+    </header>
+    <div id="footer">
+        <div>
+            <div
+                style="color:#edf3ef ;font-family: 'DINOT-CondMedium'; font-size: 28px; font-weight: 800 ; height: 45px;">
+                Contact
+            </div>
+            <ul>
+                <li><a class="size22" tabindex="0">Ye Liu 丨 Huasssan@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script src='script.js'></script>
+</body>
+
+
+
+</html>
